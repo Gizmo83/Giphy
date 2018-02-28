@@ -13,23 +13,44 @@ h1 {
     margin-top: 5px;
 }
 
+p,
+label {
+    font-size: 12pt;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
 .category-btn,
 #add-category {
-    background-color: rgb(152, 51, 253);
     border-radius: 5px;
     border-style: none;
     font-weight: bold;
     width: 100px;
     height: 30px;
     letter-spacing: 1px;
-    margin-right: 20px;
-    margin-bottom: 20px;
-    margin-top: 20px;
+
+}
+
+.category-btn{
+    background-color: rgb(152, 51, 253);
+    margin: 10px;
+}
+
+#add-category {
+    background-color: rgb(2, 202, 254);
+    margin: 20px;
 }
 #category-input {
     color: black;
 }
 .category {
-    width: 300px;
+    width: 360px;
     display: inline-block;
+}
+
+#rating,
+#notice {
+    margin-left: 10px;
+    margin-bottom: 0;
+    margin-top: 10px;
 }

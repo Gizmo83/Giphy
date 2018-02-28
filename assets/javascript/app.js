@@ -5,7 +5,7 @@ var categories = ["happy", "shrug", "confused", "ugh", "excited"];
 function displayCategoryInfo() {
     
     var search = $(this).attr("data-name");
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + search + "&api_key=EDGBPbpEg4mgULZRo4i4vO5BRxsDOyUQ&limit=20";
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + search + "&api_key=EDGBPbpEg4mgULZRo4i4vO5BRxsDOyUQ&limit=21";
     
     // Creating an AJAX call for the specific category button being clicked
     $.ajax({
@@ -14,12 +14,15 @@ function displayCategoryInfo() {
     }).then(function(response) {
         console.log(response);
         $("#categories-view").empty();
+        $("#categories-view").append("<p id='notice'>*Click to start and stop animation</p>");
+
         for (var i = 0; i < response.data.length; i++) {
             var categoryDiv = $("<div class='category'>");
             var rating = response.data[i].rating;
             var imageTag = $("<img class='giphy'>");
             
-            categoryDiv.append("<p> Rating: " + rating + "</p>");
+            var ratingUp = rating.toUpperCase();
+            categoryDiv.append("<p id='rating'> Rating: " + ratingUp + "</p>");
             
             imageTag.attr("src", response.data[i].images.fixed_height_still.url);
             imageTag.attr({'data-animate' : response.data[i].images.fixed_height.url});
@@ -53,15 +56,15 @@ function renderButtons() {
     $("#buttons-view").empty();
     
     for (var i = 0; i < categories.length; i++) {
-        var a = $("<button>");
-        // Adding a class of category-btn to our button
-        a.addClass("category-btn");
-        // Adding a data-attribute
-        a.attr("data-name", categories[i]);
+        var newButton = $("<button>");
+        // Adding newButton class of category-btn to our button
+        newButton.addClass("category-btn");
+        // Adding newButton data-attribute
+        newButton.attr("data-name", categories[i]);
         // Providing the initial button text
-        a.text(categories[i]);
+        newButton.text("#" + categories[i]);
         // Adding the button to the buttons-view div
-        $("#buttons-view").append(a);
+        $("#buttons-view").append(newButton);
     }
 }
 
