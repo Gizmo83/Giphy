@@ -29,3 +29,7 @@ h1 {
 #category-input {
     color: black;
 }
+.category {
+    width: 300px;
+    display: inline-block;
+}
